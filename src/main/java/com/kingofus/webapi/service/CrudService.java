@@ -4,9 +4,9 @@ import java.util.List;
 
 public interface CrudService<DOMAIN, Serializable> {
 
-    public List<DOMAIN> getAll();
+    List<DOMAIN> getAll();
 
-    public void store();
+    void store();
 
-    public DOMAIN findOne(Serializable searchKey);
+    DOMAIN findOne(Serializable searchKey);
 }

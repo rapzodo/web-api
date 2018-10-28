@@ -19,7 +19,7 @@ public class GamesCrudService implements CrudService<Game, Long> {
 
     @Override
     public List<Game> getAll() {
-        return null;
+        return (List<Game>) gamesRepository.findAll();
     }
 
     @Override

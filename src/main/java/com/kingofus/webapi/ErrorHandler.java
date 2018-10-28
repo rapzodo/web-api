@@ -10,7 +10,7 @@ public class ErrorHandler {
     @ExceptionHandler(value = {Exception.class})
     public String handleException(Exception e, Model model) {
         model.addAttribute("errorMessage", e.getLocalizedMessage());
-        return "error";
+        return "public/error";
     }
 
 

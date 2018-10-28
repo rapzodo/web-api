@@ -1,4 +1,4 @@
-package com.kingofus.webapi;
+package com.kingofus.webapi.controllers;
 
 import com.kingofus.webapi.service.CrudService;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -12,18 +12,23 @@ import java.util.List;
 @RequestMapping("/")
 public class GamesController {
 
-    private CrudService gamesCrudService;
+    private CrudService service;
 
-    public GamesController(@Qualifier(value = "gamesCrudService") CrudService gamesCrudService) {
-        this.gamesCrudService = gamesCrudService;
+    public GamesController(@Qualifier("gamesCrudService") CrudService service) {
+        this.service = service;
     }
 
     @RequestMapping("/games")
     public String getGames(Model model) throws Exception {
-        List all = gamesCrudService.getAll();
+        List all = service.getAll();
         if (all == null || all.size() == 0)
             throw new Exception("deu merda , nao achou nada");
         model.addAttribute("games", all);
-        return "games";
+        return "public/games";
+    }
+
+    @RequestMapping("/shit")
+    public void shit(){
+        throw new RuntimeException("SHIIIIT!!");
     }
 }
