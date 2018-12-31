@@ -1,4 +1,4 @@
-package com.kingofus.webapi.persistence.entities;
+package com.kingofus.api.persistence.entities;
 
 import lombok.Data;
 

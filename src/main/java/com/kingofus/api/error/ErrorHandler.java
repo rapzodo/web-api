@@ -1,4 +1,4 @@
-package com.kingofus.webapi;
+package com.kingofus.api.error;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;

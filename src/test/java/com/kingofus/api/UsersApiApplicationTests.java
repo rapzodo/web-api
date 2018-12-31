@@ -1,4 +1,4 @@
-package com.kingofus.webapi;
+package com.kingofus.api;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class WebApiApplicationTests {
+public class UsersApiApplicationTests {
 
     @Test
     public void contextLoads() {
