@@ -5,6 +5,7 @@ import com.kingofus.persistence.repositories.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,10 +21,11 @@ public class UsersManagementServiceImpl implements UsersManagementService<Long> 
 
     @Override
     public List<User> getAll() {
-        return (List<User>) usersRepository.findAll();
+        return usersRepository.findAll();
     }
 
     @Override
+    @Transactional
     public void save(User user) {
         usersRepository.save(user);
     }
