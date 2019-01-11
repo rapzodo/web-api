@@ -1,7 +1,17 @@
 package com.kingofus.persistence.repositories;
 
 import com.kingofus.persistence.entities.Game;
-import org.springframework.data.repository.CrudRepository;
+import com.kingofus.persistence.entities.Genre;
+import com.kingofus.persistence.entities.Platform;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface GamesRepository extends CrudRepository<Game,Long> {
+import java.util.stream.Stream;
+
+public interface GamesRepository extends JpaRepository<Game,Long> {
+
+    Game findGameByTitle(String title);
+
+    Stream<Game> readAllByPlatforms(Platform platform);
+
+    Stream<Game> readAllByGenre(Genre genre);
 }
