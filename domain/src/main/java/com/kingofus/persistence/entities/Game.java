@@ -3,14 +3,11 @@ package com.kingofus.persistence.entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import java.util.List;
+import javax.persistence.ManyToOne;
 
 @Entity
 @Data
@@ -21,10 +18,8 @@ public class Game {
     @GeneratedValue
     private Long id;
     private String title;
-    @OneToMany(mappedBy = "game")
-    @Fetch(FetchMode.SUBSELECT)
-    private List<Genre> genre;
-    @OneToMany(mappedBy = "game")
-    @Fetch(FetchMode.SUBSELECT)
-    private List<Platform> platforms;
+    @ManyToOne
+    private Genre genre;
+    @ManyToOne
+    private Platform platform;
 }

@@ -7,11 +7,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.stream.Stream;
 
-public interface GamesRepository extends JpaRepository<Game,Long> {
+public interface GameRepository extends JpaRepository<Game,Long> {
 
-    Game findGameByTitle(String title);
+    Stream<Game> readByTitle(String title);
 
-    Stream<Game> readAllByPlatforms(Platform platform);
+    Stream<Game> readAllByPlatform(Platform platform);
 
     Stream<Game> readAllByGenre(Genre genre);
 }

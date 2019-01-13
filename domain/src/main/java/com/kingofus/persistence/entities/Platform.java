@@ -4,6 +4,7 @@ import com.kingofus.domain.Manufacturer;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -14,6 +15,6 @@ public class Platform {
     private String name;
     @Enumerated(EnumType.STRING)
     private Manufacturer manufacturer;
-    @ManyToOne
-    private Game game;
+    @OneToMany(mappedBy = "platform")
+    private List<Game> games;
 }
