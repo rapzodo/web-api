@@ -63,10 +63,18 @@ public class GameRepositoryTest {
 
     @Test
     @Transactional
-    public void shouldFindGameByTitle() {
+    public void shouldFindGamesByTitle() {
         try (Stream<Game> nba2k19 = repository.readByTitle("NBA 2K19")) {
             assertThat(nba2k19.count()).isEqualTo(2);
         }
+    }
+
+    @Test
+    @Transactional
+    public void shouldFindGameByTitleAndPlatform() {
+        String title = "NBA 2K19";
+        assertThat(repository.findByTitleAndPlatform(title,xboxOne))
+                .matches(game -> game.getTitle().equals(title) && game.getPlatform().equals(xboxOne));
     }
 
     public void insertGames() {

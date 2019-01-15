@@ -1,5 +1,7 @@
 package com.kingofus.service;
 
+import com.kingofus.persistence.entities.User;
+
 public interface LoginService{
-    void login(String username, String password) throws Throwable;
+    User login(String username, String password) throws Throwable;
 }

@@ -1,11 +1,12 @@
 package com.kingofus.service;
 
 import com.kingofus.exceptions.InvalidCredentialsException;
+import com.kingofus.persistence.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class DefaultLoginService implements LoginService{
+public class DefaultLoginService implements LoginService {
 
     private UsersManagementService usersManagementService;
 
@@ -15,8 +16,9 @@ public class DefaultLoginService implements LoginService{
     }
 
     @Override
-    public void login(String username, String password) throws Throwable {
-        usersManagementService.findByUserNameAndPassword(username, password).orElseThrow(InvalidCredentialsException::new);
+    public User login(String username, String password) throws Throwable {
+        return (User) usersManagementService.findByUserNameAndPassword(username, password)
+                .orElseThrow(InvalidCredentialsException::new);
     }
 
 }

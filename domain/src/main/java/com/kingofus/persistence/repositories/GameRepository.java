@@ -14,4 +14,6 @@ public interface GameRepository extends JpaRepository<Game,Long> {
     Stream<Game> readAllByPlatform(Platform platform);
 
     Stream<Game> readAllByGenre(Genre genre);
+
+    Game findByTitleAndPlatform(String title, Platform platform);
 }
