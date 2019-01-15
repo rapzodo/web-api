@@ -6,11 +6,11 @@ import com.kingofus.domain.mapping.OrikaBeansMapper;
 import com.kingofus.persistence.entities.User;
 import com.kingofus.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-@RestController("/king-of-us/auth/api/v1")
+@RestController
+@RequestMapping("/king-of-us/auth/api/v1")
 public class LoginAuthController {
 
     private LoginService loginService;
@@ -20,6 +20,11 @@ public class LoginAuthController {
     public LoginAuthController(LoginService loginService, OrikaBeansMapper orikaBeansMapper) {
         this.loginService = loginService;
         this.orikaBeansMapper = orikaBeansMapper;
+    }
+
+    @GetMapping("heartbeat")
+    public ResponseEntity heartBeat(){
+        return ResponseEntity.status(200).body("the heart is beating");
     }
 
     @PostMapping("/login")
