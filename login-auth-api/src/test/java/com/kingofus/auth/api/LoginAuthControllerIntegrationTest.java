@@ -29,8 +29,6 @@ public class LoginAuthControllerIntegrationTest {
     private MockMvc mockMvc;
     @Autowired
     private ObjectMapper objectMapper;
-//    @MockBean
-//    private UsersManagementServiceImpl usersManagementService;
 
     @Test
     public void shouldLoginUserAndReturnLoggedUser() throws Exception {

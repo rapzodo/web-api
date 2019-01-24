@@ -1,17 +1,9 @@
 package com.kingofus.management;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kingofus.ManagementApplication;
 import com.kingofus.domain.UserAccount;
 import org.hamcrest.Matchers;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.web.servlet.MockMvc;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -23,19 +15,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest(classes = ManagementApplication.class)
-@AutoConfigureMockMvc(secure = false)
-public class UserControllerIntegrationTest {
+
+public class UserControllerIntegrationTest extends AbstractApisIntegrationTest{
 
     private static final String ROOT_URL = "/king-of-us/management/api/v1/users";
     private static final String FIND_BY_USERNAME_URL = ROOT_URL + "/search";
-    @Autowired
-    private MockMvc mockMvc;
-    @Autowired
-    private ObjectMapper objectMapper;
-//    @MockBean
-//    private UsersManagementServiceImpl usersManagementService;
 
     @Test
     public void shouldCallApiAndSearchByEmail() throws Exception {
@@ -48,7 +32,6 @@ public class UserControllerIntegrationTest {
 
     @Test
     public void shouldCallApiAndBringAllUserAccounts() throws Exception {
-//        Mockito.when(usersManagementService.getAll()).thenReturn(Collections.emptyList());
         mockMvc.perform(get(ROOT_URL))
                 .andDo(print())
                 .andExpect(status().is2xxSuccessful())
