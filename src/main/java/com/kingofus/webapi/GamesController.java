@@ -1,4 +1,4 @@
-package com.kingofus.webapi;
+package com.kingofus.webapi.controllers;
 
 import com.kingofus.webapi.service.CrudService;
 import org.springframework.beans.factory.annotation.Qualifier;
